@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Number</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the Number</h1>
+
+    <p>I'm thinking of a number between 1 and 100.</p>
+    <p>You have <span id="attempts">10</span> attempts left.</p>
+    <input type="number" id="guess" placeholder="Enter your guess">
+    <button onclick="checkGuess()">Submit</button>
+
+    <p id="message"></p>
+
+    <script>
+        // JavaScript code
+        var number = Math.floor(Math.random() * 100) + 1;
+        var attempts = 10;
+
+        function checkGuess() {
+            var guess = parseInt(document.getElementById("guess").value);
+            var message = document.getElementById("message");
+            var attemptsLeft = document.getElementById("attempts");
+
+            if (guess === number) {
+                message.textContent = "Congratulations! You guessed the correct number!";
+                message.style.color = "green";
+                disableInput();
+            } else {
+                attempts--;
+                attemptsLeft.textContent = attempts;
+
+                if (guess < number) {
+                    message.textContent = "Too low!";
+                } else {
+                    message.textContent = "Too high!";
+                }
+
+                if (attempts === 0) {
+                    message.textContent = "Game over! You ran out of attempts. The number was " + number + ".";
+                    message.style.color = "red";
+                    disableInput();
+                }
+            }
+
+            document.getElementById("guess").value = "";
+        }
+
+        function disableInput() {
+            document.getElementById("guess").disabled = true;
+            document.getElementsByTagName("button")[0].disabled = true;
+        }
+    </script>
+</body>
+</html>
