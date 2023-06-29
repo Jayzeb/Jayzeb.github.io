@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+input {
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+#message {
+    font-weight: bold;
+    margin-top: 20px;
+}
