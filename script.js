@@ -1,5 +1,5 @@
 // Predefined list of words
-var words = ["apple", "banana", "orange", "grape", "kiwi"];
+var words = ["apple", "banana", "orange", "grape", "kiwi", "Hurensohn"];
 
 function scrambleWord(word) {
   // Scramble the letters of the word
