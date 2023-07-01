@@ -1,6 +1,8 @@
+// Predefined list of words
 var words = ["apple", "banana", "orange", "grape", "kiwi"];
 
 function scrambleWord(word) {
+  // Scramble the letters of the word
   var scrambledWord = word.split('').sort(function() {
     return 0.5 - Math.random();
   }).join('');
@@ -8,9 +10,11 @@ function scrambleWord(word) {
 }
 
 function playGame() {
+  // Select a random word from the list
   var word = words[Math.floor(Math.random() * words.length)];
   var scrambled = scrambleWord(word);
 
+  // Display the scrambled word
   var scrambledWordElement = document.getElementById('scrambled-word');
   scrambledWordElement.textContent = scrambled;
 
@@ -39,7 +43,9 @@ function playGame() {
     messageElement.style.color = isCorrect ? 'green' : 'red';
   }
 
+  // Expose the checkGuess function to the global scope
   window.checkGuess = checkGuess;
 }
 
-playGame();
+// Expose the playGame function to the global scope
+window.playGame = playGame;
